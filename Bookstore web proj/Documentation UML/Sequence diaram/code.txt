@@ -1,0 +1,13 @@
+@startuml
+actor User
+participant "Controller" as C
+participant "Service" as S
+database "Database" as DB
+
+User -> C: Select a book
+C -> S: Search for book
+S -> DB: Query book information
+DB --> S: Return book information
+S --> C: Return book information
+C --> User: Display book information
+@enduml

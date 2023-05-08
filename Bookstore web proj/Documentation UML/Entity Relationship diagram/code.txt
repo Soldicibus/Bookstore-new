@@ -1,0 +1,44 @@
+@startuml
+!define table(x) class x << (T,#FFAAAA) >>
+!define primary_key(x) <b><u>x</u></b>
+!define foreign_key(x) <u>x</u>
+
+hide empty members
+
+title Entity Relationship Diagram
+
+table(Book) {
+  primary_key(id)
+  +title
+  author_id foreign_key(References Author.id)
+  genre_id foreign_key(References Genre.id)
+}
+
+table(Author) {
+  primary_key(id)
+  +name
+}
+
+table(Genre) {
+  primary_key(id)
+  +name
+}
+
+table(User) {
+  primary_key(id)
+  +name
+  email
+  password
+  role_id foreign_key(References User_Role.id)
+}
+
+table(User_Role) {
+  primary_key(id)
+  +name
+}
+
+Book "1" -- "1" Author
+Book "1" -- "1" Genre
+User "1" -- "1" User_Role
+
+@enduml

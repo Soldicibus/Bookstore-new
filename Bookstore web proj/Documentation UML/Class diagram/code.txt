@@ -1,0 +1,44 @@
+@startuml
+class User {
+  +id: int
+  +name: string
+  +email: string
+  -password: string
+  +role_id: int
+  +remember_token: string
+  +created_at: timestamp
+  +updated_at: timestamp
+}
+
+class Book {
+  +id: int
+  +title: string
+  +author_id: int
+  +genre_id: int
+  +created_at: timestamp
+  +updated_at: timestamp
+}
+
+class Author {
+  +id: int
+  +name: string
+  +created_at: timestamp
+  +updated_at: timestamp
+}
+
+class Genre {
+  +id: int
+  +name: string
+  +created_at: timestamp
+  +updated_at: timestamp
+}
+
+class User_Role {
+  +id: int
+  +name: string
+}
+
+User --> User_Role
+Book --> Author
+Book --> Genre
+@enduml
